@@ -940,9 +940,36 @@
         });
     }
 
+    function addScrollDownAnimation() {
+        // Create scroll down arrow
+        const scrollDownArrow = document.createElement('div');
+        scrollDownArrow.classList.add('scroll-down-arrow');
+        
+        // Add click event to scroll down
+        scrollDownArrow.addEventListener('click', () => {
+            window.scrollTo({
+                top: window.innerHeight,
+                behavior: 'smooth'
+            });
+        });
+
+        // Add to body
+        document.body.appendChild(scrollDownArrow);
+
+        // Show/hide based on scroll position
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                scrollDownArrow.style.display = 'none';
+            } else {
+                scrollDownArrow.style.display = 'block';
+            }
+        });
+    }
+
     function init() {
         setupNavigation();
         setupScrollMechanism();
+        addScrollDownAnimation();
         loadCoins().then(() => {
             setupSearch();
             setupToggleSwitchListener();
