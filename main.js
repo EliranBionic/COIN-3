@@ -804,8 +804,145 @@
         });
     }
 
+    function setupScrollMechanism() {
+        const parallaxSection = document.querySelector(".parallaxScroll");
+        const contentWrapper = document.querySelector(".content-wrapper");
+        const scrollIndicator = document.querySelector(".scroll-indicator");
+        const contentDiv = document.getElementById("contentDiv");
+        const navbar = document.querySelector(".navbar");
+        let isAtTop = window.scrollY === 0;
+        let isScrolling = false;
+
+        // Helper function for smooth scroll
+        function smoothScrollTo(target, duration = 500) {
+            const start = window.pageYOffset;
+            const distance = target - start;
+            const startTime = performance.now();
+
+            function animate(currentTime) {
+                const timeElapsed = currentTime - startTime;
+                const progress = Math.min(timeElapsed / duration, 1);
+
+                // Easing function
+                const easeInOutQuad = (t) =>
+                    t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+
+                window.scrollTo(0, start + distance * easeInOutQuad(progress));
+
+                if (progress < 1) {
+                    requestAnimationFrame(animate);
+                } else {
+                    isScrolling = false;
+                }
+            }
+
+            isScrolling = true;
+            requestAnimationFrame(animate);
+        }
+
+        // Main scroll event handler
+        window.addEventListener(
+            "wheel",
+            function (event) {
+                if (isScrolling) {
+                    event.preventDefault();
+                    return;
+                }
+
+                const isOverContentDiv = contentDiv.matches(":hover");
+                const windowScroll = window.scrollY;
+                const parallaxHeight = window.innerHeight;
+
+                // Handling welcome screen (parallax section)
+                if (windowScroll < parallaxHeight) {
+                    if (event.deltaY > 0) {
+                        // Scrolling down from welcome screen
+                        event.preventDefault();
+                        smoothScrollTo(parallaxHeight);
+                        parallaxSection.style.opacity = "0";
+                        scrollIndicator.style.display = "none";
+                        isAtTop = false;
+                        return;
+                    }
+                }
+
+                // Handling content-wrapper section
+                if (windowScroll >= parallaxHeight) {
+                    if (
+                        !isOverContentDiv &&
+                        event.deltaY < 0 &&
+                        windowScroll === parallaxHeight
+                    ) {
+                        // Scrolling up to welcome screen when not over contentDiv
+                        event.preventDefault();
+                        smoothScrollTo(0);
+                        parallaxSection.style.opacity = "1";
+                        scrollIndicator.style.display = "block";
+                        isAtTop = true;
+                        return;
+                    }
+                }
+
+                // Block scrolling above content-wrapper when not over contentDiv
+                if (
+                    !isOverContentDiv &&
+                    windowScroll === parallaxHeight &&
+                    event.deltaY < 0
+                ) {
+                    event.preventDefault();
+                    return;
+                }
+            },
+            { passive: false }
+        );
+
+        // Handle scroll within content wrapper
+        contentWrapper.addEventListener(
+            "wheel",
+            function (event) {
+                const isOverContentDiv = contentDiv.matches(":hover");
+                const windowScroll = window.scrollY;
+                const parallaxHeight = window.innerHeight;
+
+                // Allow normal scrolling when over contentDiv
+                if (isOverContentDiv) {
+                    // Only handle special case when at the very top of contentWrapper
+                    if (
+                        contentWrapper.scrollTop === 0 &&
+                        windowScroll === parallaxHeight &&
+                        event.deltaY < 0
+                    ) {
+                        event.preventDefault();
+                        smoothScrollTo(0);
+                        parallaxSection.style.opacity = "1";
+                        scrollIndicator.style.display = "block";
+                        isAtTop = true;
+                    }
+                    return;
+                }
+
+                // Prevent default scroll behavior when not over contentDiv
+                if (!isOverContentDiv) {
+                    event.preventDefault();
+                }
+            },
+            { passive: false }
+        );
+
+        // Update isAtTop state on scroll
+        window.addEventListener("scroll", function () {
+            isAtTop = window.scrollY === 0;
+        });
+
+        // Reset scroll state when animation ends
+        window.addEventListener("scrollend", function () {
+            isScrolling = false;
+        });
+    }
+
     function init() {
         setupNavigation();
+        setupScrollMechanism();
         loadCoins().then(() => {
             setupSearch();
             setupToggleSwitchListener();

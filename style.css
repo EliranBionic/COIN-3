@@ -3,11 +3,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Michroma&family=Playwrite+CU:wght@100..400&display=swap");
 body {
     background-image: url("./assets/Images/wp12529001.jpg");
-  /* background-image: url("./assets/Images/mainWallpaper.jpg"); */
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  font-family: "Roboto", sans-serif;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: "Roboto", sans-serif;
 }
 /* Header */
 
@@ -33,12 +32,13 @@ h1 {
     padding: 20px;
     text-align: center;
     margin: auto;
+    margin-bottom: 20px !important;
     width: 80%;
     max-width: 1000px;
     border-radius: 20px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     position: relative;
-  overflow: hidden;
+    overflow: hidden;
 }
 
 .header::before {
@@ -49,283 +49,394 @@ h1 {
     width: 200%;
     height: 200%;
     background: radial-gradient(
-        circle,
-        rgba(255, 255, 255, 0.1),
-        rgba(255, 255, 255, 0)
-        );
-        animation: rotate 6s linear infinite;
-    }
-    
-    @keyframes rotate {
-        0% {
-            transform: rotate(0deg);
-        }
-        100% {
-            transform: rotate(360deg);
-        }
-    }
-    
-    h1 {
-        font-family: "Open Sans", sans-serif;
-        font-size: 4rem;
-        color: #fff;
-        text-align: center;
-        margin-top: 20px;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        background: linear-gradient(
-            90deg,
-            rgba(255, 0, 150, 1) 0%,
-            rgba(0, 204, 255, 1) 100%
-            );
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: glow 1s ease-in-out infinite alternate;
-        }
-        
-        @keyframes glow {
-            from {
-                text-shadow: 0 0 10px rgba(255, 0, 150, 0.8),
-                0 0 20px rgba(255, 0, 150, 0.6), 0 0 30px rgba(255, 0, 150, 0.4),
-                0 0 40px rgba(255, 0, 150, 0.2);
-            }
-            to {
-                text-shadow: 0 0 20px rgba(0, 204, 255, 0.8),
-                0 0 30px rgba(0, 204, 255, 0.6), 0 0 40px rgba(0, 204, 255, 0.4),
-                0 0 50px rgba(0, 204, 255, 0.2);
-            }
-        }
-        
-        #contentDiv {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, calc(20% - 40px)));
-            gap: 40px;
-            padding: 20px;
-            width: 100%;
-            justify-content: center;
-            max-width: 1920px;
-            margin: 0 auto;
-        }
-        
-        /* Card */
-        .card {
-            width: 100%;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 20px;
-            background-color: #2cbfb8;
-            transition: transform 0.2s;
-            font-family: "Roboto", sans-serif;
-            font-weight: 500;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            font-size: 16px; /* Set a consistent font size */
-            line-height: 1.5; /* Ensure proper spacing */
-            text-overflow: ellipsis; /* Prevent text overflow */
-        }
-        
-        .card:hover {
-            transform: scale(1.05);
-        }
-        
-        .card-details {
-            flex-grow: 0; /* Prevent stretching */
-            overflow: auto; /* Allow scrolling instead of resizing */
-        }
-        
-        .card img {
-            width: 100%;
-            height: 200px;
-            object-fit: contain;
-            margin-bottom: 10px;
-            background-color: #2cbfb8;
-            padding: 10px;
-        }
-        
-        .card .card-body {
-            padding: 15px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            flex-grow: 1;
-        }
-        
-        .card .card-title {
-            color: #333;
-            margin-bottom: 10px;
-        }
-        
-        .card .card-text {
-            color: #333;
-        }
+        ellipse at center,
+        rgba(255, 0, 153, 0.4) 0%,
+        rgba(73, 50, 64, 0.4) 100%
+    );
+    transform: rotate(-45deg);
+}
 
-        .card button {
-            margin-top: 10px;
-            font-family: "Roboto", sans-serif;
-            font-weight: 500;
-            font-size: 1rem;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            background-color: #ff0099;
-            color: #fff;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        
-        .card button:hover {
-            background-color: #e60082;
-        }
-        
-        /* Card Toggle Switch */
-        .coin-card {
-            position: relative;
-        }
-        
-        .card-toggle-container {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            z-index: 10;
-        }
-        
-        .card-toggle-container .form-check {
-            margin: 0;
-        }
-        
-        .card-toggle-container .form-check-input {
-            width: 40px;
-            height: 20px;
-            background-color: white;
-            border-color: white;
-            cursor: pointer;
-        }
-        
-        .card-toggle-container .form-check-input:checked {
-            background-color: #e60082;
-            border-color: #e60082;
-        }
-        
-        .card-toggle-container .form-check-input:focus {
-            background-color: white;
-            border-color: white;
-            box-shadow: none;
-            outline: none;
-        }
-        
-        .card-toggle-container .form-check-input:focus:checked {
-            background-color: #e60082;
-            border-color: #e60082;
-            box-shadow: none;
-        }
-        
-        /* Nav */
-        .navbar {
-            margin-top: 15px;
-        }
-        
-        /* Search bar */
-        .search {
-            width: 20%;
-        }
-        
-        /* Search Bar Clear Button */
-        .search input[type="search"]::-webkit-search-cancel-button {
-            cursor: pointer;
-        }
-        
-        .search input[type="search"]::-ms-clear {
-            cursor: pointer;
-        }
-        
-        .search input[type="search"]::-moz-search-cancel-button {
-            cursor: pointer;
-        }
-        
-        /* Chart Container */
-        #chartContainer {
-            width: 100%;
-            min-height: 500px;
-            height: 500px;
-            display: block;
-            position: relative;
-            overflow: visible;
-        }
-        
-        .canvasjs-chart-container {
-            width: 100% !important;
-            height: 100% !important;
-            position: relative;
-            overflow: visible !important;
-        }
-        
-        .canvasjs-chart-canvas {
-            width: 100% !important;
-            height: 100% !important;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-        
-        .canvasjs-chart-tooltip {
-            position: absolute !important;
-            z-index: 1000 !important;
-            pointer-events: none !important;
-            max-width: 250px !important;
-            background: rgba(255, 255, 255, 0.9) !important;
-            border: 1px solid #ccc !important;
-            border-radius: 4px !important;
-            padding: 10px !important;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2) !important;
-        }
-        
-        /* Reports Container Styles */
-        .reports-container {
-            background-color: #f8f9fa;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        
-        .reports-header {
-            background-color: #007bff;
-            color: white;
-            padding: 15px;
-            border-radius: 8px 8px 0 0;
-            margin-bottom: 20px;
-        }
-        
-        .reports-header h2 {
-            margin: 0;
-            font-size: 1.5rem;
-        }
-        
-        @media (max-width: 768px) {
-            #contentDiv {
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-                gap: 15px;
-                padding: 10px;
-            }
-        }
-        
-        /* Parallax Scroll */
-        
-        .parallaxScroll {
-            
-            background-image: url("./assets/Images/mainWallpaper.jpg");
-            /* background-image: url("./assets/Images/wp12529001.jpg"); */
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            height: 100vh;
-            
-        }
-        
-        
-        .img-fluid.rounded-circle {
-            width: 100%;
-            height: auto;
-            object-fit: cover; /* Ensures the image covers the container */
-            aspect-ratio: 1 / 1; /* Ensures the image maintains a square aspect ratio */
-        }
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+h1 {
+    font-family: "Open Sans", sans-serif;
+    font-size: 4rem;
+    color: #fff;
+    text-align: center;
+    margin-top: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(
+        90deg,
+        rgba(255, 0, 150, 1) 0%,
+        rgba(0, 204, 255, 1) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: glow 1s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px rgba(255, 0, 150, 0.8),
+            0 0 20px rgba(255, 0, 150, 0.6), 0 0 30px rgba(255, 0, 150, 0.4),
+            0 0 40px rgba(255, 0, 150, 0.2);
+    }
+    to {
+        text-shadow: 0 0 20px rgba(0, 204, 255, 0.8),
+            0 0 30px rgba(0, 204, 255, 0.6), 0 0 40px rgba(0, 204, 255, 0.4),
+            0 0 50px rgba(0, 204, 255, 0.2);
+    }
+}
+
+#contentDiv {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    width: 95%;
+    max-width: 1920px;
+    margin: 20px auto 0; /* Added top margin here */
+    padding: 20px;
+}
+
+.card {
+    width: 100%;
+    margin: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    background-color: #2cbfb8;
+    transition: transform 0.2s;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card-details {
+    flex-grow: 0; /* Prevent stretching */
+    overflow: auto; /* Allow scrolling instead of resizing */
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    margin-bottom: 10px;
+    background-color: #2cbfb8;
+    padding: 10px;
+}
+
+.card .card-body {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.card .card-title {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.card .card-text {
+    color: #333;
+}
+
+.card button {
+    margin-top: 10px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff0099;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.card button:hover {
+    background-color: #e60082;
+}
+
+/* Card Toggle Switch */
+.coin-card {
+    position: relative;
+}
+
+.card-toggle-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 10;
+}
+
+.card-toggle-container .form-check {
+    margin: 0;
+}
+
+.card-toggle-container .form-check-input {
+    width: 40px;
+    height: 20px;
+    background-color: white;
+    border-color: white;
+    cursor: pointer;
+}
+
+.card-toggle-container .form-check-input:checked {
+    background-color: #e60082;
+    border-color: #e60082;
+}
+
+.card-toggle-container .form-check-input:focus {
+    background-color: white;
+    border-color: white;
+    box-shadow: none;
+    outline: none;
+}
+
+.card-toggle-container .form-check-input:focus:checked {
+    background-color: #e60082;
+    border-color: #e60082;
+    box-shadow: none;
+}
+
+/* Nav */
+.navbar {
+    background-color: #212529 !important;
+    width: 100%;
+    margin: 0;
+}
+
+.navbar-dark {
+    background-color: #212529 !important; /* Bootstrap's default dark color */
+}
+
+/* Search bar */
+.search {
+    width: 20%;
+}
+
+/* Search Bar Clear Button */
+.search input[type="search"]::-webkit-search-cancel-button {
+    cursor: pointer;
+}
+
+.search input[type="search"]::-ms-clear {
+    cursor: pointer;
+}
+
+.search input[type="search"]::-moz-search-cancel-button {
+    cursor: pointer;
+}
+
+/* Chart Container */
+#chartContainer {
+    width: 100%;
+    min-height: 500px;
+    height: 500px;
+    display: block;
+    position: relative;
+    overflow: visible;
+}
+
+.canvasjs-chart-container {
+    width: 100% !important;
+    height: 100% !important;
+    position: relative;
+    overflow: visible !important;
+}
+
+.canvasjs-chart-canvas {
+    width: 100% !important;
+    height: 100% !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.canvasjs-chart-tooltip {
+    position: absolute !important;
+    z-index: 1000 !important;
+    pointer-events: none !important;
+    max-width: 250px !important;
+    background: rgba(255, 255, 255, 0.9) !important;
+    border: 1px solid #ccc !important;
+    border-radius: 4px !important;
+    padding: 10px !important;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Reports Container Styles */
+.reports-container {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.reports-header {
+    background-color: #007bff;
+    color: white;
+    padding: 15px;
+    border-radius: 8px 8px 0 0;
+    margin-bottom: 20px;
+}
+
+.reports-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+/* Parallax Scroll */
+
+.parallaxScroll {
+    height: 100vh; /* Full viewport height */
+    width: 100%;
+    background: url("./assets/Images/wp12529001.jpg") no-repeat center center;
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: opacity 0.5s ease;
+}
+
+.content-wrapper {
+    position: relative;
+    z-index: 1;
+    margin-top: 100vh; /* Matches parallax height */
+    padding-top: 20px;;
+    background: linear-gradient(
+        135deg,
+        #343a40,
+        /* Bootstrap dark navbar color */ #212529
+            /* Slightly darker shade for depth */
+    );
+    min-height: 100vh;
+    backdrop-filter: blur(10px);
+    color: white;
+    box-shadow: 0 -10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.content-wrapper h1,
+.content-wrapper h2,
+.content-wrapper p,
+.content-wrapper label {
+    color: white;
+}
+
+.content-wrapper .card {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    color: white;
+}
+
+.content-wrapper .card-header {
+    background: rgba(0, 0, 0, 0.2);
+    color: white;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.img-fluid.rounded-circle {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Ensures the image covers the container */
+    aspect-ratio: 1 / 1; /* Ensures the image maintains a square aspect ratio */
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 10;
+    animation: bounce 2s infinite;
+}
+
+.scroll-text {
+    display: block;
+    color: white;
+    font-family: "Michroma", sans-serif;
+    margin-bottom: 10px;
+}
+
+.scroll-arrow {
+    width: 30px;
+    height: 30px;
+    border-left: 3px solid white;
+    border-bottom: 3px solid white;
+    transform: rotate(-45deg);
+    margin: 0 auto;
+}
+
+@keyframes bounce {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    40% {
+        transform: translateX(-50%) translateY(-20px);
+    }
+    60% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+}
+
+/* Responsive adjustments */
+@media (min-width: 1200px) {
+    #contentDiv {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+@media (max-width: 1199px) and (min-width: 992px) {
+    #contentDiv {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 991px) and (min-width: 768px) {
+    #contentDiv {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 767px) {
+    #contentDiv {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        padding: 10px;
+        width: 98%;
+        margin-top: 15px; /* Slightly reduced top margin for mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    #contentDiv {
+        grid-template-columns: 1fr;
+    }
+}
