@@ -55,4 +55,4 @@ Custom scroll mechanism with:
 MIT License
 
 ## Contact
-Developed by [Your Name/Organization]
+Developed by Eliran Benita
