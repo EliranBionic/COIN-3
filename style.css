@@ -1,0 +1,331 @@
+/* @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700|Roboto:400,500,700&display=swap"); */
+
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Michroma&family=Playwrite+CU:wght@100..400&display=swap");
+body {
+    background-image: url("./assets/Images/wp12529001.jpg");
+  /* background-image: url("./assets/Images/mainWallpaper.jpg"); */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: "Roboto", sans-serif;
+}
+/* Header */
+
+.michroma-regular {
+    font-family: "Michroma", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+h1 {
+    font-family: "Michroma", serif !important;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 4rem;
+    color: #fff;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.header {
+    background: linear-gradient(135deg, #ff0099, #493240);
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    margin: auto;
+    width: 80%;
+    max-width: 1000px;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+  overflow: hidden;
+}
+
+.header::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+        circle,
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0)
+        );
+        animation: rotate 6s linear infinite;
+    }
+    
+    @keyframes rotate {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+    
+    h1 {
+        font-family: "Open Sans", sans-serif;
+        font-size: 4rem;
+        color: #fff;
+        text-align: center;
+        margin-top: 20px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        background: linear-gradient(
+            90deg,
+            rgba(255, 0, 150, 1) 0%,
+            rgba(0, 204, 255, 1) 100%
+            );
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: glow 1s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px rgba(255, 0, 150, 0.8),
+                0 0 20px rgba(255, 0, 150, 0.6), 0 0 30px rgba(255, 0, 150, 0.4),
+                0 0 40px rgba(255, 0, 150, 0.2);
+            }
+            to {
+                text-shadow: 0 0 20px rgba(0, 204, 255, 0.8),
+                0 0 30px rgba(0, 204, 255, 0.6), 0 0 40px rgba(0, 204, 255, 0.4),
+                0 0 50px rgba(0, 204, 255, 0.2);
+            }
+        }
+        
+        #contentDiv {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, calc(20% - 40px)));
+            gap: 40px;
+            padding: 20px;
+            width: 100%;
+            justify-content: center;
+            max-width: 1920px;
+            margin: 0 auto;
+        }
+        
+        /* Card */
+        .card {
+            width: 100%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            background-color: #2cbfb8;
+            transition: transform 0.2s;
+            font-family: "Roboto", sans-serif;
+            font-weight: 500;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            font-size: 16px; /* Set a consistent font size */
+            line-height: 1.5; /* Ensure proper spacing */
+            text-overflow: ellipsis; /* Prevent text overflow */
+        }
+        
+        .card:hover {
+            transform: scale(1.05);
+        }
+        
+        .card-details {
+            flex-grow: 0; /* Prevent stretching */
+            overflow: auto; /* Allow scrolling instead of resizing */
+        }
+        
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+            margin-bottom: 10px;
+            background-color: #2cbfb8;
+            padding: 10px;
+        }
+        
+        .card .card-body {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex-grow: 1;
+        }
+        
+        .card .card-title {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .card .card-text {
+            color: #333;
+        }
+
+        .card button {
+            margin-top: 10px;
+            font-family: "Roboto", sans-serif;
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #ff0099;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .card button:hover {
+            background-color: #e60082;
+        }
+        
+        /* Card Toggle Switch */
+        .coin-card {
+            position: relative;
+        }
+        
+        .card-toggle-container {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 10;
+        }
+        
+        .card-toggle-container .form-check {
+            margin: 0;
+        }
+        
+        .card-toggle-container .form-check-input {
+            width: 40px;
+            height: 20px;
+            background-color: white;
+            border-color: white;
+            cursor: pointer;
+        }
+        
+        .card-toggle-container .form-check-input:checked {
+            background-color: #e60082;
+            border-color: #e60082;
+        }
+        
+        .card-toggle-container .form-check-input:focus {
+            background-color: white;
+            border-color: white;
+            box-shadow: none;
+            outline: none;
+        }
+        
+        .card-toggle-container .form-check-input:focus:checked {
+            background-color: #e60082;
+            border-color: #e60082;
+            box-shadow: none;
+        }
+        
+        /* Nav */
+        .navbar {
+            margin-top: 15px;
+        }
+        
+        /* Search bar */
+        .search {
+            width: 20%;
+        }
+        
+        /* Search Bar Clear Button */
+        .search input[type="search"]::-webkit-search-cancel-button {
+            cursor: pointer;
+        }
+        
+        .search input[type="search"]::-ms-clear {
+            cursor: pointer;
+        }
+        
+        .search input[type="search"]::-moz-search-cancel-button {
+            cursor: pointer;
+        }
+        
+        /* Chart Container */
+        #chartContainer {
+            width: 100%;
+            min-height: 500px;
+            height: 500px;
+            display: block;
+            position: relative;
+            overflow: visible;
+        }
+        
+        .canvasjs-chart-container {
+            width: 100% !important;
+            height: 100% !important;
+            position: relative;
+            overflow: visible !important;
+        }
+        
+        .canvasjs-chart-canvas {
+            width: 100% !important;
+            height: 100% !important;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        .canvasjs-chart-tooltip {
+            position: absolute !important;
+            z-index: 1000 !important;
+            pointer-events: none !important;
+            max-width: 250px !important;
+            background: rgba(255, 255, 255, 0.9) !important;
+            border: 1px solid #ccc !important;
+            border-radius: 4px !important;
+            padding: 10px !important;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2) !important;
+        }
+        
+        /* Reports Container Styles */
+        .reports-container {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .reports-header {
+            background-color: #007bff;
+            color: white;
+            padding: 15px;
+            border-radius: 8px 8px 0 0;
+            margin-bottom: 20px;
+        }
+        
+        .reports-header h2 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            #contentDiv {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 15px;
+                padding: 10px;
+            }
+        }
+        
+        /* Parallax Scroll */
+        
+        .parallaxScroll {
+            
+            background-image: url("./assets/Images/mainWallpaper.jpg");
+            /* background-image: url("./assets/Images/wp12529001.jpg"); */
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100vh;
+            
+        }
+        
+        
+        .img-fluid.rounded-circle {
+            width: 100%;
+            height: auto;
+            object-fit: cover; /* Ensures the image covers the container */
+            aspect-ratio: 1 / 1; /* Ensures the image maintains a square aspect ratio */
+        }
