@@ -624,7 +624,6 @@
                 .filter(([_, coinData]) => coinData.isChecked)
                 .map(([_, coinData]) => coinData.symbol.trim().toUpperCase());
 
-            console.log("DEBUG: Tracked Coin Symbols", trackedCoins);
 
             if (trackedCoins.length === 0) {
                 chartContainer.innerHTML =
@@ -638,10 +637,7 @@
             // Verify container dimensions
             const containerWidth = chartContainer.offsetWidth;
             const containerHeight = chartContainer.offsetHeight;
-            console.log("DEBUG: Container Dimensions", {
-                width: containerWidth,
-                height: containerHeight,
-            });
+            
 
             // Ensure we have valid dimensions
             if (containerWidth <= 0 || containerHeight <= 0) {
@@ -649,7 +645,7 @@
                 return;
             }
 
-            console.log("DEBUG: Tracked Symbols", trackedCoins);
+           
 
             // Prepare data series
             const dataSeries = trackedCoins.map((symbol) => ({
