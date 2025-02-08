@@ -67,5 +67,6 @@ Custom scroll mechanism with:
 5. Create a Pull Request
 
 ## Contact
+Developed by [Your Name/Organization]
 
 Developed by Eliran Benita.
